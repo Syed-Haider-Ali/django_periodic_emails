@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .controller import *
 
-# Create your views here.
+
+register_controller = RegisterController()
+
+class RegisterAPIView(ModelViewSet):
+    def create(self,request):
+        return register_controller.create(request)
